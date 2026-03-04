@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button } from 'react-native';
+import { View, Button, FlatList } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useNavigation } from '@react-navigation/native'
 
@@ -12,6 +12,12 @@ export default function HomeScreen() {
                 <Button
                     title="Ir para detalhes"
                     onPress={() => navigation.navigate("Details")}
+                />
+
+                <FlatList
+                    data={ }
+                    keyExtractor={ }
+                    renderItem={ }
                 />
             </View>
         </SafeAreaView>
