@@ -1,14 +1,34 @@
 {
-    "people": [
+    "trees": [
         {
             "id": 1,
-            "name": "jao",
-            "email": "joao@gmail.com"
+            "name": "Ipê-Amarelo",
+            "origin": "Brasil"
         },
         {
             "id": 2,
-            "name": "augusto",
-            "email": "octavius@gmail.com"
+            "name": "Pau-Brasil",
+            "origin": "Brasil"
+        },
+        {
+            "id": 3,
+            "name": "Araucária",
+            "origin": "Brasil"
+        },
+        {
+            "id": 4,
+            "name": "Jacarandá",
+            "origin": "América do Sul"
+        },
+        {
+            "id": 5,
+            "name": "Mangueira",
+            "origin": "Índia"
+        },
+        {
+            "id": 6,
+            "name": "Oliveira",
+            "origin": "Europa"
         }
     ]
 }
