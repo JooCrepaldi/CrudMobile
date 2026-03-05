@@ -1,34 +1,94 @@
 {
-    "trees": [
-        {
-            "id": 1,
-            "name": "Ipê-Amarelo",
-            "origin": "Brasil"
-        },
-        {
-            "id": 2,
-            "name": "Pau-Brasil",
-            "origin": "Brasil"
-        },
-        {
-            "id": 3,
-            "name": "Araucária",
-            "origin": "Brasil"
-        },
-        {
-            "id": 4,
-            "name": "Jacarandá",
-            "origin": "América do Sul"
-        },
-        {
-            "id": 5,
-            "name": "Mangueira",
-            "origin": "Índia"
-        },
-        {
-            "id": 6,
-            "name": "Oliveira",
-            "origin": "Europa"
-        }
-    ]
+  "people": [
+    {
+      "id": 1,
+      "name": "João Silva",
+      "email": "joao.silva@email.com",
+      "origin": "Brasil"
+    },
+    {
+      "id": 2,
+      "name": "Maria Oliveira",
+      "email": "maria.oliveira@email.com",
+      "origin": "Brasil"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Souza",
+      "email": "carlos.souza@email.com",
+      "origin": "Brasil"
+    },
+    {
+      "id": 4,
+      "name": "Ana Fernández",
+      "email": "ana.fernandez@email.com",
+      "origin": "Argentina"
+    },
+    {
+      "id": 5,
+      "name": "Raj Patel",
+      "email": "raj.patel@email.com",
+      "origin": "Índia"
+    },
+    {
+      "id": 6,
+      "name": "Luca Bianchi",
+      "email": "luca.bianchi@email.com",
+      "origin": "Itália"
+    },
+    {
+      "id": 7,
+      "name": "Lucas Pereira",
+      "email": "lucas.pereira@email.com",
+      "origin": "Brasil"
+    },
+    {
+      "id": 8,
+      "name": "Emma Johnson",
+      "email": "emma.johnson@email.com",
+      "origin": "Estados Unidos"
+    },
+    {
+      "id": 9,
+      "name": "Sofia García",
+      "email": "sofia.garcia@email.com",
+      "origin": "Espanha"
+    },
+    {
+      "id": 10,
+      "name": "Kenji Tanaka",
+      "email": "kenji.tanaka@email.com",
+      "origin": "Japão"
+    },
+    {
+      "id": 11,
+      "name": "Pierre Dubois",
+      "email": "pierre.dubois@email.com",
+      "origin": "França"
+    },
+    {
+      "id": 12,
+      "name": "Isabella Rossi",
+      "email": "isabella.rossi@email.com",
+      "origin": "Itália"
+    },
+    {
+      "id": 13,
+      "name": "Daniel Müller",
+      "email": "daniel.muller@email.com",
+      "origin": "Alemanha"
+    },
+    {
+      "id": 14,
+      "name": "Liam O'Connor",
+      "email": "liam.oconnor@email.com",
+      "origin": "Irlanda"
+    },
+    {
+      "id": 15,
+      "name": "Yara Haddad",
+      "email": "yara.haddad@email.com",
+      "origin": "Líbano"
+    }
+  ]
 }
