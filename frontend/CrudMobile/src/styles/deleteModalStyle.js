@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
 
-const modalStyles = StyleSheet.create({
+export const deleteStyles = StyleSheet.create({
     overlay: {
         flex: 1,
         backgroundColor: "rgba(0,0,0,0.45)",
-        justifyContent: "flex-end",
+        justifyContent: "center",
         alignItems: "center",
     },
     container: {
@@ -12,55 +12,49 @@ const modalStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         borderRadius: 20,
         padding: 24,
-        alignItems: "center",
-    },
-    closeButton: {
-        position: "absolute",
-        top: 14,
-        right: 14,
     },
     title: {
         fontSize: 18,
         fontWeight: "700",
         color: "#1C1C1E",
-        textAlign: "center",
-        marginTop: 8,
         marginBottom: 6,
     },
-    subtitle: {
+    message: {
         fontSize: 14,
         color: "#8E8E93",
-        textAlign: "center",
         marginBottom: 24,
     },
-    buttonsRow: {
-        flexDirection: "column",
-        gap: 10,
-        width: "100%",
+    name: {
+        fontWeight: "600",
+        color: "#1C1C1E",
     },
-    outlineButton: {
+    buttons: {
+        flexDirection: "row",
+        gap: 10,
+    },
+    cancelButton: {
+        flex: 1,
+        paddingVertical: 14,
+        borderRadius: 50,
         borderWidth: 1.5,
         borderColor: "#E5E5EA",
-        borderRadius: 50,
-        paddingVertical: 14,
         alignItems: "center",
     },
-    outlineButtonText: {
+    cancelText: {
         fontSize: 15,
         fontWeight: "500",
         color: "#1C1C1E",
     },
-    solidButton: {
-        backgroundColor: "#FF3B30",
-        borderRadius: 50,
+    confirmButton: {
+        flex: 1,
         paddingVertical: 14,
+        borderRadius: 50,
+        backgroundColor: "#FF3B30",
         alignItems: "center",
     },
-    solidButtonText: {
+    confirmText: {
         fontSize: 15,
         fontWeight: "600",
         color: "#FFFFFF",
-    },
+    }
 })
-
-export default modalStyles

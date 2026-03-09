@@ -2,34 +2,28 @@ import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context"
 import { formStyles } from "../styles/formStyles"
+import createPeople from "../services/post";
+import { API_URL } from "../../config/urlConfig";
+import { useNavigation } from "@react-navigation/native"
 
 export default function AddScreen() {
-    const [id, setID] = useState("")
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [origin, setOrigin] = useState("")
 
+    const navigation = useNavigation()
+
     return (
-        <SafeAreaView style={formStyles.container}>  
-            <View style={formStyles.content}>         
+        <SafeAreaView style={formStyles.container}>
+            <View style={formStyles.content}>
 
                 <View style={formStyles.inputGroup}>
-                    <Text style={formStyles.label}>ID</Text>           
-                    <TextInput
-                        onChangeText={setID}
-                        value={id}
-                        placeholder="id"
-                        style={formStyles.input}                         
-                    />
-                </View>
-
-                <View style={formStyles.inputGroup}>
-                    <Text style={formStyles.label}>Name</Text>           
+                    <Text style={formStyles.label}>Name</Text>
                     <TextInput
                         onChangeText={setNome}
                         value={nome}
                         placeholder="name"
-                        style={formStyles.input}                         
+                        style={formStyles.input}
                     />
                 </View>
 
@@ -54,7 +48,13 @@ export default function AddScreen() {
                     />
                 </View>
 
-                <TouchableOpacity style={formStyles.submitButton}>  
+                <TouchableOpacity
+                    style={formStyles.submitButton}
+                    onPress={async () => {
+                        await createPeople(nome, email, origin, API_URL)
+                        navigation.goBack()                      
+                    }}
+                >
                     <Text style={formStyles.submitButtonText}>Create</Text>
                 </TouchableOpacity>
 

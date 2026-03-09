@@ -24,8 +24,6 @@ export const formStyles = StyleSheet.create({
         paddingHorizontal: 16,
         fontSize: 16,
         color: "#1C1C1E",
-        borderWidth: 0,
-        margin: 10
     },
     inputFocused: {
         borderWidth: 1.5,

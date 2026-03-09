@@ -2,23 +2,32 @@ import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context"
 import { formStyles } from "../styles/formStyles"
+import { useRoute } from "@react-navigation/native"
+import updatePeople from "../services/put";
+import { API_URL } from "../../config/urlConfig";
+import { useNavigation } from "@react-navigation/native"
 
 export default function AddScreen() {
     const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [origin, setOrigin] = useState("")
 
+    const route = useRoute()
+    const { id } = route.params
+
+    const navigation = useNavigation()
+
     return (
-        <SafeAreaView style={formStyles.container}>  
-            <View style={formStyles.content}>         
+        <SafeAreaView style={formStyles.container}>
+            <View style={formStyles.content}>
 
                 <View style={formStyles.inputGroup}>
-                    <Text style={formStyles.label}>Name</Text>           
+                    <Text style={formStyles.label}>Name</Text>
                     <TextInput
                         onChangeText={setNome}
                         value={nome}
                         placeholder="name"
-                        style={formStyles.input}                         
+                        style={formStyles.input}
                     />
                 </View>
 
@@ -43,7 +52,13 @@ export default function AddScreen() {
                     />
                 </View>
 
-                <TouchableOpacity style={formStyles.submitButton}>  
+                <TouchableOpacity
+                    style={formStyles.submitButton}
+                    onPress={async () => {
+                        await updatePeople(nome, email, origin, API_URL, id)
+                        navigation.goBack()
+                    }}
+                >
                     <Text style={formStyles.submitButtonText}>Update</Text>
                 </TouchableOpacity>
 

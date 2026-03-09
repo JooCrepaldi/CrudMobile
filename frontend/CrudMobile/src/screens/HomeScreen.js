@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react"
+import { useState, useCallback } from "react"
 import { View, FlatList, Text, TouchableOpacity } from 'react-native'
 import getPeople from "../services/get"
 import ActionModal from "./modal/ActionModal"
 import { listStyles } from "../styles/listStyle"
 import { btnStyles } from "../styles/btnStyle"
-import { useNavigation } from "@react-navigation/native" 
+import { useNavigation, useFocusEffect } from "@react-navigation/native"
+import DeleteModal from "./modal/deleteModal"
+import deletePeople from "../services/delete"
 
-
-const API_URL = "http://192.168.0.7"
+import { API_URL } from "../../config/urlConfig"
 
 export default function HomeScreen() {
 
@@ -16,20 +17,24 @@ export default function HomeScreen() {
     const [people, setPeople] = useState([])
     const [visible, setVisible] = useState(false)
     const [selectedPerson, setSelectedPerson] = useState(null)
+    const [deleteVisible, setDeleteVisible] = useState(false)
 
-    useEffect(() => {
-        async function loadPeople() {
-            const data = await getPeople(API_URL)
-            setPeople(data)
-        }
-        loadPeople()
-    }, [])
+    useFocusEffect(
+        useCallback(() => {
+            async function loadPeople() {
+                const data = await getPeople(API_URL)
+                setPeople(data)
+            }
+            loadPeople()
+        }, [])
+    )
 
     return (
         <View style={{ flex: 1 }}>
             <FlatList
                 data={people}
                 keyExtractor={(item) => item.id.toString()}
+                contentContainerStyle={{ paddingBottom: 90 }}
                 renderItem={({ item }) => (
                     <View style={listStyles.row}>
 
@@ -63,8 +68,21 @@ export default function HomeScreen() {
             <ActionModal
                 visible={visible}
                 onClose={() => setVisible(false)}
-                onEdit={() => navigation.navigate('Edit')}
-                onDelete={() => console.log("delete")}// adicionar o modal 2 de confirmação de delete
+                onEdit={() => navigation.navigate('Edit', { id: selectedPerson?.id })}
+                onDelete={() => {
+                    setVisible(false)
+                    setDeleteVisible(true)
+                }}
+                personName={selectedPerson?.name}
+            />
+
+            <DeleteModal
+                visible={deleteVisible}
+                onClose={() => setDeleteVisible(false)}
+                onConfirm={async () => {
+                    await deletePeople(selectedPerson?.name, selectedPerson?.id, API_URL)
+                    setDeleteVisible(false)
+                }}
                 personName={selectedPerson?.name}
             />
 
