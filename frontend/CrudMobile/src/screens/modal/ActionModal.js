@@ -4,7 +4,6 @@ import { Ionicons } from "@expo/vector-icons"
 import modalStyles from "../../styles/modalStyles"
 
 export default function ActionModal({ visible, onClose, onEdit, onDelete, personName }) {
-
     return (
 
         <Modal
@@ -36,7 +35,6 @@ export default function ActionModal({ visible, onClose, onEdit, onDelete, person
                     </Text>
 
                     <View style={modalStyles.buttonsRow}>
-
                         <TouchableOpacity style={modalStyles.outlineButton} onPress={onEdit}>
                             <Text style={modalStyles.outlineButtonText}>Edit</Text>
                         </TouchableOpacity>
@@ -44,7 +42,6 @@ export default function ActionModal({ visible, onClose, onEdit, onDelete, person
                         <TouchableOpacity style={modalStyles.solidButton} onPress={onDelete}>
                             <Text style={modalStyles.solidButtonText}>Delete</Text>
                         </TouchableOpacity>
-
                     </View>
 
                 </TouchableOpacity>

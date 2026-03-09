@@ -1,5 +1,6 @@
 import HomeScreen from "../screens/HomeScreen";
-import DetailsScreen from "../screens/DetailsScreen";
+import EditScreen from "../screens/EditScreen";
+import AddScreen from "../screens/AddScreen";
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -10,7 +11,8 @@ export default function Navigation() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Edit" component={EditScreen} />
+        <Stack.Screen name="Add" component={AddScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

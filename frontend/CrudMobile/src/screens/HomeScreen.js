@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react"
-import { View, FlatList, Text, TouchableOpacity, Button } from 'react-native'
-import { SafeAreaView } from "react-native-safe-area-context"
+import { View, FlatList, Text, TouchableOpacity } from 'react-native'
 import getPeople from "../services/get"
-import { listStyles } from "../styles/style"
 import ActionModal from "./modal/ActionModal"
+import { listStyles } from "../styles/listStyle"
+import { btnStyles } from "../styles/btnStyle"
+import { useNavigation } from "@react-navigation/native" 
+
 
 const API_URL = "http://192.168.0.7"
 
 export default function HomeScreen() {
+
+    const navigation = useNavigation()
 
     const [people, setPeople] = useState([])
     const [visible, setVisible] = useState(false)
@@ -22,7 +26,7 @@ export default function HomeScreen() {
     }, [])
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
             <FlatList
                 data={people}
                 keyExtractor={(item) => item.id.toString()}
@@ -59,18 +63,18 @@ export default function HomeScreen() {
             <ActionModal
                 visible={visible}
                 onClose={() => setVisible(false)}
-                onEdit={() => console.log("edit")}
-                onDelete={() => console.log("delete")}
+                onEdit={() => navigation.navigate('Edit')}
+                onDelete={() => console.log("delete")}// adicionar o modal 2 de confirmação de delete
                 personName={selectedPerson?.name}
             />
 
             <TouchableOpacity
-                style={listStyles.fab}
-                onPress={() => console.log("add")}
+                style={btnStyles.fab}
+                onPress={() => navigation.navigate('Add')}
                 activeOpacity={0.8}
             >
-                <Text style={listStyles.fabText}>+</Text>
+                <Text style={btnStyles.fabText}>+</Text>
             </TouchableOpacity>
-        </SafeAreaView>
+        </View>
     )
 }
