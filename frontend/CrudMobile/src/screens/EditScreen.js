@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context"
 import { formStyles } from "../styles/formStyles"
 import { useRoute } from "@react-navigation/native"
@@ -16,6 +16,19 @@ export default function AddScreen() {
     const { id } = route.params
 
     const navigation = useNavigation()
+
+    const handleSubmit = async () => {
+        if (!nome.trim() || !email.trim() || !origin.trim()) {
+            Alert.alert(
+                "Campos obrigatórios", 
+                "Por favor, preencha todos os campos antes de continuar.",
+                [{ text: "OK" }] 
+            );
+            return; 
+        }
+        await updatePeople(nome, email, origin, API_URL, id);
+        navigation.goBack();
+    };
 
     return (
         <SafeAreaView style={formStyles.container}>
@@ -54,10 +67,7 @@ export default function AddScreen() {
 
                 <TouchableOpacity
                     style={formStyles.submitButton}
-                    onPress={async () => {
-                        await updatePeople(nome, email, origin, API_URL, id)
-                        navigation.goBack()
-                    }}
+                    onPress={handleSubmit}
                 >
                     <Text style={formStyles.submitButtonText}>Update</Text>
                 </TouchableOpacity>

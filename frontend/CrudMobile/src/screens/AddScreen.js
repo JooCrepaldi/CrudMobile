@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context"
 import { formStyles } from "../styles/formStyles"
 import createPeople from "../services/post";
@@ -12,6 +12,19 @@ export default function AddScreen() {
     const [origin, setOrigin] = useState("")
 
     const navigation = useNavigation()
+
+    const handleSubmit = async () => {
+        if (!nome.trim() || !email.trim() || !origin.trim()) {
+            Alert.alert(
+                "Campos obrigatórios", 
+                "Por favor, preencha todos os campos antes de continuar.",
+                [{ text: "OK" }] 
+            );
+            return; 
+        }
+        await createPeople(nome, email, origin, API_URL);
+        navigation.goBack();
+    };
 
     return (
         <SafeAreaView style={formStyles.container}>
@@ -50,10 +63,7 @@ export default function AddScreen() {
 
                 <TouchableOpacity
                     style={formStyles.submitButton}
-                    onPress={async () => {
-                        await createPeople(nome, email, origin, API_URL)
-                        navigation.goBack()                      
-                    }}
+                    onPress={handleSubmit}
                 >
                     <Text style={formStyles.submitButtonText}>Create</Text>
                 </TouchableOpacity>
