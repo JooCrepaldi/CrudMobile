@@ -1,0 +1,29 @@
+{
+  "name": "crudmobile",
+  "version": "1.0.0",
+  "description": "A simple crud app with react-native.",
+  "main": "index.js",
+  "scripts": {
+    "expo": "npm --prefix frontend/CrudMobile run start",
+    "api": "json-server --watch backend/db.json --port 3000",
+    "tunnel": "ngrok http 3000",
+    "dev": "concurrently -k -n \"EXPO,API,NGROK\" -c \"blue,green,yellow\" \"npm run expo\" \"npm run api\" \"npm run tunnel\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JooCrepaldi/CrudMobile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JooCrepaldi/CrudMobile/issues"
+  },
+  "homepage": "https://github.com/JooCrepaldi/CrudMobile#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "json-server": "^1.0.0-beta.15",
+    "ngrok": "^5.0.0-beta.2"
+  }
+}
