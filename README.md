@@ -24,7 +24,7 @@ npx expo start --tunnel
 
 If not installed, add the required dev dependencies:
 
-npm install -D concurrently json-server ngrok
+npm install concurrently json-server ngrok
 
 ## API Configuration
 
